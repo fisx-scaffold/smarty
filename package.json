@@ -1,0 +1,26 @@
+{
+  "name": "${#project-name#}",
+  "version": "1.0.0",
+  "description": "${#project-description=none#}",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "repository": "",
+  "license": "BSD",
+  "fisx": {
+    "dependencies": {
+      "moye": "github:ecomfe/moye",
+      "etpl": "edp:etpl@latest",
+      "est": "edp:est@2.x.x"
+    },
+    "requireConfig": {
+      "baseUrl": "src"
+    }
+  },
+  "devDependencies": {
+    "less": "^2.5.3",
+    "less-plugin-autoprefix": "^1.5.1"
+  }
+}
