@@ -22,21 +22,6 @@ fis.addProcessStyleFiles(styleFiles, {
 // 设置 domain
 fis.set('project.domain', urlPrefix);
 
-// 监听根据引用的资源路径查询文件事件，对于一些包含特殊 prefix 做特殊处理
-fis.on('lookup:file', function (info, file) {
-    if (info.file) {
-        return;
-    }
-
-    if (info.rest.indexOf(urlPrefix) !== -1) {
-        // 为了避免像被 fis3-hook-amd 监听的 lookup:file 事件又改写了，这里 rest 值还是保持原来的
-        var result = fis.project.lookup(info.rest.replace(urlPrefix, ''));
-        info.file = result.file;
-        info.id = result.id;
-        info.moduleId = result.moduleId;
-    }
-});
-
 // 启用相对路径
 fis.match('index.html', {
     relative: true

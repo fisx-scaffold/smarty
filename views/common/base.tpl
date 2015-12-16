@@ -7,7 +7,7 @@
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
     {%block name="description"%}
-    <meta name="description" content="病友圈">
+    <meta name="description" content="">
     {%/block%}
     {%block name="data-define"%}{%/block%}
     {%block name="title"%}{%/block%}
