@@ -9,14 +9,25 @@
   "author": "",
   "repository": "",
   "license": "BSD",
-  "fisx": {
+  "${#manifestKey#}": {
     "dependencies": {
-      "moye": "github:ecomfe/moye",
-      "etpl": "edp:etpl@latest",
-      "est": "edp:est@2.x.x"
+      "moye": "ecomfe/moye",
+      "etpl": "latest",
+      "est": "2.x.x"
     },
     "requireConfig": {
       "baseUrl": "src"
+    },
+    "lock": {
+      "moye": {
+        "endpoint": "github"
+      },
+      "etpl": {
+        "endpoint": "edp"
+      },
+      "est": {
+        "endpoint": "edp"
+      }
     }
   },
   "devDependencies": {

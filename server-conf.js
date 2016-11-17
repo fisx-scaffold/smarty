@@ -71,7 +71,6 @@ exports.getLocations = function () {
             handlers: requireInjector,
             get: {
                 match: function (reqPathName) { // mock all `/xx/xx` path
-                    console.log(reqPathName)
                     return !/\.\w+(\?.*)?$/.test(reqPathName);
                 }
             },
