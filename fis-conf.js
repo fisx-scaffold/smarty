@@ -6,16 +6,14 @@
 var urlPrefix = '{%$host%}';
 
 // 初始化要编译的样式文件: 只处理页面引用的样式文件
-var _ = fis.util;
-var styleFiles = _.extractLinkStyleFileSync({
-    scanDir: './views',
+var LessPluginAutoPrefix = require('less-plugin-autoprefix');
+var autoprefixPlugin = new LessPluginAutoPrefix({browsers: ['ie >= 8', 'last 2 versions']});
+fis.initProcessStyleFiles({
+    files: '/views/**.tpl',
     preprocess: function (path) {
         return path.replace(urlPrefix, '');
     }
-});
-var LessPluginAutoPrefix = require('less-plugin-autoprefix');
-var autoprefixPlugin = new LessPluginAutoPrefix({browsers: ['ie >= 8', 'last 2 versions']});
-fis.addProcessStyleFiles(styleFiles, {
+}, {
     plugins: [autoprefixPlugin]
 }, true);
 
@@ -40,7 +38,7 @@ fis.hook('amd', {
 
         // 提取 smarty 模板的异步模块信息
         return {
-            asynDeps: _.extractAsyncModuleIds(content)
+            asynDeps: fis.util.extractAsyncModuleIds(content)
         };
     },
     config: fis.getModuleConfig()
