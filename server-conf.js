@@ -36,7 +36,9 @@ exports.directoryIndexes = true;
 exports.documentRoot = __dirname;
 
 exports.getLocations = function () {
-    var requireInjector = requireConfigInjector();
+    var requireInjector = requireConfigInjector({
+        baseUrl: '//localhost:' + exports.port + '/src'
+    });
 
     return [
         {

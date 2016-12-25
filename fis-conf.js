@@ -9,7 +9,7 @@ var urlPrefix = '{%$host%}';
 var LessPluginAutoPrefix = require('less-plugin-autoprefix');
 var autoprefixPlugin = new LessPluginAutoPrefix({browsers: ['ie >= 8', 'last 2 versions']});
 fis.initProcessStyleFiles({
-    files: '/views/**.tpl',
+    files: ['/views/**/*.tpl', '/views/*.tpl'],
     preprocess: function (path) {
         return path.replace(urlPrefix, '');
     }
@@ -21,9 +21,7 @@ fis.initProcessStyleFiles({
 fis.set('project.domain', urlPrefix);
 
 // 启用相对路径
-fis.match('index.html', {
-    relative: true
-}).match('*.js', {
+fis.match('*.js', {
     relative: true
 }).match('*.css', {
     relative: true
