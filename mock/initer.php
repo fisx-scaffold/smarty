@@ -9,7 +9,7 @@ ini_set('error_reporting', E_ALL & ~E_NOTICE);
 
 require dirname(__FILE__) . '/libs/Smarty.class.php';
 
-$smarty = new Smarty;
+$smarty = new Smarty();
 
 $smarty -> force_compile = true;
 $smarty -> debugging = false;
