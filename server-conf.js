@@ -36,16 +36,11 @@ exports.directoryIndexes = true;
 exports.documentRoot = __dirname;
 
 exports.getLocations = function () {
-    var requireInjector = requireConfigInjector({
-        baseUrl: '//localhost:' + exports.port + '/src'
-    });
-
     return [
         {
             location: /\/$/,
             handler: [
-                home('index.html'),
-                requireInjector
+                home('index.html')
             ]
         },
         {
